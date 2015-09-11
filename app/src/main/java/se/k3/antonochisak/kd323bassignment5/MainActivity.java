@@ -6,7 +6,8 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-
+import android.view.View;
+import android.view.View.OnClickListener;
 import com.firebase.client.Firebase;
 
 import butterknife.ButterKnife;
@@ -15,7 +16,7 @@ import se.k3.antonochisak.kd323bassignment5.fragments.PopularMoviesFragment;
 import se.k3.antonochisak.kd323bassignment5.navigation.drawer.NavigationDrawer;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity implements OnClickListener {
 
     NavigationDrawer mNavigationDrawer;
     FragmentManager mFragmentManager;
@@ -27,6 +28,7 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.setTheme(R.style.AlriksTheme);
         setContentView(R.layout.activity_main);
         ButterKnife.inject(this);
 
@@ -80,5 +82,10 @@ public class MainActivity extends ActionBarActivity {
         } else {
             super.onBackPressed();
         }
+    }
+
+    @Override
+    public void onClick(View v) {
+
     }
 }

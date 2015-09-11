@@ -18,6 +18,7 @@ import java.util.Arrays;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import se.k3.antonochisak.kd323bassignment5.MainActivity;
 import se.k3.antonochisak.kd323bassignment5.R;
 import se.k3.antonochisak.kd323bassignment5.fragments.PopularMoviesFragment;
 import se.k3.antonochisak.kd323bassignment5.fragments.AlrikFragment;
@@ -35,6 +36,7 @@ public class NavigationDrawer implements AdapterView.OnItemClickListener {
     private CharSequence mTitle;
     private CharSequence mDrawerTitle;
     private FragmentManager mFragmentManager;
+    public Activity thisActivity;
 
     public @InjectView(R.id.drawer_list)
     ListView mDrawerList;
@@ -42,6 +44,7 @@ public class NavigationDrawer implements AdapterView.OnItemClickListener {
     DrawerLayout mDrawerLayout;
 
     public NavigationDrawer(FragmentManager mFragmentManager, Activity activity) {
+        thisActivity=activity;
         ButterKnife.inject(this, activity);
         mTitle = activity.getResources().getString(R.string.app_name);
         this.mFragmentManager = mFragmentManager;
@@ -103,9 +106,13 @@ public class NavigationDrawer implements AdapterView.OnItemClickListener {
         switch (position) {
             case 0:
                 fragment = new PopularMoviesFragment();
+               // view.setTheme(R.style.AlriksTheme);
+              //  setTheme(android.R.style.Theme_Holo_Light);
+                thisActivity.setTheme(R.style.AppTheme);
                 break;
             case 1:
                 fragment = new AlrikFragment();
+                thisActivity.setTheme(R.style.AlriksTheme);
                 break;
             default:
                 break;
