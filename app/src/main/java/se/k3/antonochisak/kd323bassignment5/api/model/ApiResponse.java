@@ -31,4 +31,11 @@ public class ApiResponse {
 
     @SerializedName("tagline")
     public String tagline;
+
+    @SerializedName("rating")
+    public String rating;
+
+    @SerializedName("runtime")
+    public String runtime;
+
 }

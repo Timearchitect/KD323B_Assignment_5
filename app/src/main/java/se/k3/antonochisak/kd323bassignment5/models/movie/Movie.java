@@ -8,16 +8,17 @@ import org.parceler.ParcelConstructor;
  */
 
 public class Movie {
-    private String title;
+    private String title,rating,runtime;
     private String slugline;
     private String poster;
     private String fanArt;
     private String overview;
     private String tagline;
-    private int year;
+    private int year,likes;
 
     @ParcelConstructor
     private Movie(Builder builder) {
+        this.likes = builder.likes;
         this.title = builder.title;
         this.slugline = builder.slugline;
         this.poster = builder.poster;
@@ -25,6 +26,8 @@ public class Movie {
         this.year = builder.year;
         this.overview = builder.overview;
         this.tagline = builder.tagline;
+        this.rating = builder.rating;
+        this.runtime = builder.runtime;
     }
 
     public String getTitle() {
@@ -46,18 +49,27 @@ public class Movie {
     public int getYear() {
         return year;
     }
-
+    public int getLikes() {
+        return likes;
+    }
+    public String getRuntime() {
+        return runtime;
+    }
     public String getOverview() {
         return overview;
     }
-
+    public String getRating() {
+        return rating;
+    }
     public String getTagline() {
         return tagline;
     }
 
+
+
     public static class Builder {
-        private String title, slugline, poster, fanArt, overview, tagline;
-        private int year;
+        private String title, slugline, poster, fanArt, overview, tagline,runtime, rating;
+        private int year,likes;
 
         public Builder title(String title) {
             this.title = title;
@@ -83,7 +95,19 @@ public class Movie {
             this.year = year;
             return this;
         }
+        public Builder rating(String rating) {
+            this.rating = rating;
+            return this;
+        }
+        public Builder runtime(String runtime) {
+            this.runtime = runtime;
+            return this;
+        }
 
+        public Builder likes(int likes) {
+            this.likes = likes;
+            return this;
+        }
         public Builder overview(String overview) {
             this.overview = overview;
             return this;
